@@ -39,10 +39,6 @@ ___
     
 * Shortcut console.log = clg
 
-* Ejecución de script en escucha
-
-    nodemon script
-
 ## Seccion 3
 ___
 ### Nodemon
