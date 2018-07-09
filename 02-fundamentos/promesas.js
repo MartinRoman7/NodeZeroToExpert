@@ -75,13 +75,23 @@ let getSalario = (empleado) => {
     });
 }
 
-getEmpleado(1).then((empleado) => {
-    console.log('Empleado de base de datos', empleado);
-    getSalario(empleado).then((respuesta) => {
-        console.log(respuesta);
-    }, (err) => {
-        console.log(err);
-    })
-}, (err) => {
+// Petición con promesas
+// getEmpleado(1).then((empleado) => {
+//     console.log('Empleado de base de datos', empleado);
+//     getSalario(empleado).then((respuesta) => {
+//         console.log(respuesta);
+//     }, (err) => {
+//         console.log(err);
+//     })
+// }, (err) => {
+//     console.log(err);
+// });
+
+// Petición con promesas en cadena
+getEmpleado(1).then(empleado => {
+    return getSalario(empleado);
+}).then(respuesta => {
+    console.log(`El salario de ${ respuesta.nombre } es de ${ respuesta.salario}`);
+}).catch(err => {
     console.log(err);
 });
