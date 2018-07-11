@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+# Remove tables from 03-bases-node
+03-bases-node/tablas-multiplicar/*.txt
