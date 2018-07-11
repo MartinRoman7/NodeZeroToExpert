@@ -154,6 +154,8 @@ ___
         El primer comando ejecutado es npm init, donde se tienen ciertas solicitudes.
         package name: (03-bases-node).
 
+        Agregar --save al final de la instalación permite agregarlo al package.json
+
         Crea un packge.json el cual incluye todas la dependecias.
 
         version: (1.0.0)
@@ -188,6 +190,59 @@ ___
         
         npm uninstall package
 
+### Yargs
+        Utilizado para la validación de parámetros.
+        
+        const argv = require('yargs')
+        .command('listar', 'Parámetro para realizar archivo de tabla de multiplicar', {
+            base: {
+                demand: true,
+                alias: 'b'
+            },
+            limite: {
+                alias: 'l',
+                default: 10
+            }
+        })
+        .help()
+        .argv;
+
+### Detección de comando (Yargs)
+        En argv, en la sección _ se muestran los comandos ingresados
+
+        let comando = argv._[0];
+
+        switch (comando) {
+            case 'listar':
+                console.log('listar');
+                break;
+
+            case 'crear':
+                console.log('crear');
+                break;
+
+            default:
+                console.log('Comando no encontrado');
+        }
+
+### Optimización de Yargs
+        Consiste en generar un archivo independiente en /config, en donde se coloca la configuración de yargs y se exporta al script principal.
+        La opción .argv está indicando que ingrese al archivo pero en especifico a la función argv, ya que se tiene opts también.
+
+        const argv = require('./config/yargs').argv;
+
+### Colores en consola
+        sudo npm install colors --save
+
+        Se hace el require en donde se vaya a necesitar.
+
+        const colors = require('colors'); o const colors = require('colors/safe');
+
+        Con la segunda opción se puede ingresar color del siguiente modo
+
+        console.log('Archivo creado:', colors.green(archivo))
+
+
 ### Scripts
 
 * app.js
@@ -199,4 +254,9 @@ ___
 * multplicar.js
 
     Cuenta con toda la lógica de la función.
+    Recibir parámetros para generar archivos de salida.
 
+* yargs.js
+
+    Contiene la configuración de yargs.
+    En él se optimiza el proceso de opciones poniendolo en un objeto.
