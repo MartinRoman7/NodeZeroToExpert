@@ -134,4 +134,69 @@ ___
 
     Aplicación de los métodos utilizando los ejemplos de callbacks y promesas
 
+## Sección 3
+
+### Requerir paquetes (require)
+        Existen diferentes tipos de paquetes que se pueden solicitar.
+        Los propios de node. (fs)
+        Los que son externos. (express)
+        Los que se tiene de forma propia. (./fs)
+
+### Estructurar funciones en archivos
+        En el script principal se cuenta con el llamado a la función que se encuentra en otro archivo. 
+        El archivo con la función cuenta con una promesa y la opción module.exports. 
+
+### Datos desde consola
+        El componente process.argv retorna los parámetros utilizados.
+        El primer campo es que se está ocupando (node), el siguiente es el archivo que se está utilizando y finalmente se tiene el parámetro introducido. 
+
+### npm init - install - uninstall - package.json
+        El primer comando ejecutado es npm init, donde se tienen ciertas solicitudes.
+        package name: (03-bases-node).
+
+        Crea un packge.json el cual incluye todas la dependecias.
+
+        version: (1.0.0)
+        description: Aplicación de línea de comando.
+        entry point: (app.js)
+        test command:
+        git repository:
+        keywords:
+        author: Martín Román
+        license: (ISC)
+        About to write to /home/martin/Documents/camaras_frio/NodeZeroToExpert/03-bases-node/package.json:
+
+            {
+            "name": "03-bases-node",
+            "version": "1.0.0",
+            "description": "Aplicación de línea de comando.",
+            "main": "app.js",
+            "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1"
+            },
+            "author": "Martín Román",
+            "license": "ISC"
+            }
+        
+        npm i yargs --save
+
+        Genera un package-lock.json que es un archivo que muestra el proceso que se llevó a cabo por npm para la instalación del paquete.
+
+        Directorio node_modules incluye plugins y paquetes necesarios para que las dependencias que se tiene en package.json funcionen.
+
+        npm install - hace una instalación basandose en el archivo package.json
+        
+        npm uninstall package
+
+### Scripts
+
+* app.js
+
+    Almacenar salida en un archivo de texto con el paquete fs.
+    Solicitar una función remota.
+    Recibir argumentos.
+
+* multplicar.js
+
+    Cuenta con toda la lógica de la función.
 
