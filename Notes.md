@@ -250,7 +250,7 @@ ___
         
         Crear archivo para ignorar archivo o directorios
         
-        .gitgnore -> colocar dentro el directorio no deseado
+        .gitignore -> colocar dentro el directorio no deseado
 
         Commit: un snap de los archivos
 
