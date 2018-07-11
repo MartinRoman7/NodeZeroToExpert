@@ -242,6 +242,24 @@ ___
 
         console.log('Archivo creado:', colors.green(archivo))
 
+### Git y GitHub
+        Colocarse en el directorio que se desea.
+
+        git init
+        git status
+        
+        Crear archivo para ignorar archivo o directorios
+        
+        .gitgnore -> colocar dentro el directorio no deseado
+
+        Commit: un snap de los archivos
+
+        git commit -m "Commit inicial"
+
+        Crear un nuevo repositorio en GitHub
+
+        git remote add origin (url del repositorio)
+        git push -u origin master
 
 ### Scripts
 
