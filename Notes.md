@@ -324,3 +324,55 @@ ___
 
     Archivo JSON en donde se está almacenando la información de forma persistente 
 
+## Sección 5
+
+### Obtener API de google geolocalización
+
+        https://developers.google.com/maps/documentation/geocoding/intro
+
+        Obtención de clave
+        https://console.cloud.google.com
+
+        Ejemplo
+        curl https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDPjQIyVGqU4B5eT-Nd-MUK2hXwdVhGIFE
+
+### Peticiones HTTP - Axios
+
+        Para utilizar axios primero se debe importar su libreria.
+        const axios = require('axios');
+
+        Después se hace una petición GET al servicio de Google.
+        axios.get(`URL del servicio`)
+            .then()
+            .catch()
+
+        Una vez que se obtiene el JSON de respuesta se puede comenzar a manipular.
+        let location = result.data.results[0]; // Mostrar info real
+        let data = JSON.stringify(result.data.results[0], undefined, 2); // Mostrar info completa pero no se puede manipular
+
+### Optimización de geolocalización
+
+        Se genera un nuevo script.
+        Uso de async y await para las promesas.
+
+### Obtención de temperatura
+
+        Petición a un servicio de clima utilizando un API KEY.
+        http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=9a58046315bceaa4e0015d5a9a48235a
+
+### Scripts 
+
+* app.js
+
+    Cuenta con la primer parte de axios.
+    Al optimizar las funciones hace la petición a lugar.js
+
+* lugar.js
+
+    Se hace uso de async y await para realizar promesas.
+    Se tiene validaciones.
+    Retorna datos como objetos.
+
+* clima.js
+
+    Script donde se hace la petición hacia un servicio de clima.
