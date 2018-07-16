@@ -360,6 +360,16 @@ ___
         Petición a un servicio de clima utilizando un API KEY.
         http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=9a58046315bceaa4e0015d5a9a48235a
 
+### Enlazar servicios
+
+        Mediante el uso de async y await se simplifican las promesas.
+
+        Los resultados obtenidos con la ejecución son node app -d 'San Petesburgo'
+        El clima en St Petersburg, Russia es de 24°C
+        No se puedo determinar el clima en sdsdsad
+
+        https://github.com/MartinRoman7/clima-app-node
+
 ### Scripts 
 
 * app.js
