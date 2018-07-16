@@ -261,6 +261,13 @@ ___
         git remote add origin (url del repositorio)
         git push -u origin master
 
+        Tags
+
+        git tag -a v1.0.0 -m "primera version"
+        git tag
+        git push --tags 
+
+
 ### Scripts
 
 * app.js
