@@ -278,3 +278,42 @@ ___
 
     Contiene la configuración de yargs.
     En él se optimiza el proceso de opciones poniendolo en un objeto.
+
+## Sección 4
+
+### Tareas persistentes
+        Consiste en almacenar la información obtenida en un archivo de salida.
+        Esta persistencia se está haciendo con el paquete fs.
+
+### Leer información de un archivo JSON
+        Para leer la información de un archivo JSON sólo se debe colocar:
+
+        listadoPorHacer = require('../database/db.json');
+
+### Comandos utilizados
+
+        node app.js crear --descripcion 'Pasear al perro'
+        node app.js listar
+        node app.js actualizar --descripcion 'Pasear al perro' -c 'true'
+        node app.js borrar --descripcion 'Pasear al perro'
+
+### Scripts
+
+* app.js
+
+    Contiene los comandos a ejecutar y utilizar.
+
+* to-do.js
+
+    Incluye funciones entre ellas:
+    crear (descripcion) - creación de las tareas
+    guardarDB () - almacenamiento en el archivo db.json
+    cargarDB () - obtener info de db.json y validación con try y catch 
+    listar () - permite cargar la db y enviar la info para imprimir en consola
+    actualizar (descripcion, completado) - actualiza el estado de la tarea 
+    borrar (descripcion) - eliminar un elemento del arreglo
+
+* db.json
+
+    Archivo JSON en donde se está almacenando la información de forma persistente 
+
