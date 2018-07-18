@@ -386,3 +386,144 @@ ___
 * clima.js
 
     Script donde se hace la petición hacia un servicio de clima.
+
+## Sección 6
+
+### Servidor Web
+
+        En la página oficial de nodejs en DOCS - API - HTTP
+        https://nodejs.org/dist/latest-v10.x/docs/api/http.html
+
+### Express
+
+        npm install express --save
+        Permite optimizar el proceso de levantar un webserver.
+
+### Mostrar contenido estático
+
+        Primero se debe generar el contenido estático, generalmente es un HTML.
+        Es necesario mandar a llamar ese archivo o directorio, para ello se utiliza un Middleware
+        
+        app.use(express.static(__dirname + '/public'))
+
+        El archivo que muestra por default es index.html
+
+        En caso de tener otro archivo (home.html) es necesario especificarlo:
+
+        http://localhost:3000/home.html
+
+### Creación de página web
+
+        En general consiste en diseñar una página web.
+
+        http://getbootstrap.com/
+        Download - Download Source
+        Lo interesante son los directorios /bootstrap/dist/css & js
+        
+        Navbar: Encabezados de bootstrap.
+        Jumbotron: Inicio de páginas.
+        Para el uso de jquery: Downloads/BootstrapCDN
+
+### Handlebars
+
+        Permite duplicar contenidos de páginas de forma dinámica.
+
+        https://www.npmjs.com/package/hbs
+        hbs - para Express
+        npm install hbs --save
+        
+        Sintaxis: {{ variable }}
+
+### Uso de parciales HBS
+
+        Los parciales consisten en códigos que se van a utilizar varias veces y se realiza sólo uno para todos.
+
+        El proceso es:
+
+        En el server se manda a llamar el parcial.
+        hbs.registerPartials(__dirname + '/views/partials');
+
+        Después en el directorio /views/partials se colocan los archivos parciales con .hbs
+
+        En el html home se llama con el comando: {{> nombre_archivo_hbs }}
+
+        Ejecución de nodemon: nodemon server -e js,hbs
+
+### Helpers
+
+        Funciones que se ejecutan cuando son requeridos.
+        Son tipo de variables pero que pueden no ser requeridas.
+
+        Sintaxis en server:
+        
+        hbs.registerHelper('getAnio', () => {
+            return new Date().getFullYear();
+        });
+
+        Llamado en .hbs:
+
+        {{ getAnio }}
+    
+### Heroku
+
+        Instalar heroku
+        
+        Uso del puerto
+        const port = process.env.PORT || 3000; // Por default es el 3000 pero se indica que se acepta cualquiera de Heroku
+
+        Uso de parámetros
+        En package.json, dentro de "scripts" se coloca la llave "start"
+        "scripts": {
+            "start": "node server.js",
+            "test": "echo \"Error: no test specified\" && exit 1"
+        }
+        Ejecución
+        npm start
+
+        En caso de ser un llamado especifico, llave "nodemon"
+        "scripts": {
+            "start": "node server.js",
+            "nodemon": "nodemon server.js",
+            "test": "echo \"Error: no test specified\" && exit 1"
+        }
+        Ejecución
+        npm run nodemon
+
+        Mismo proceso para GitHub
+        - git init
+        - git add . 
+        - git commit -m "Primer página en Heroku"
+        - git status
+
+        Proceso con Heroku
+        - . /home/martin/Downloads/heroku/bin/heroku login
+            Email: oscararcos1994@gmail.com
+            Password: *************
+        - . /home/martin/Downloads/heroku/bin/heroku git:remote -a martin-page
+        - git push heroku master
+        - . /home/martin/Downloads/heroku/bin/heroku open // Abre el navegador
+
+### Scripts
+
+* app-old.js
+
+    Servidor web no optimizado.
+
+* server.js
+
+    Servidor web optimizado mediante el uso de Express.
+    Partials
+    Helpers
+
+* index.html
+
+    Contenido estático.
+    Diseño con bootstrap.
+
+* home.hbs
+
+    Incluye el formato de hbs y desde server.js se trabajan los parámetros.
+
+* helpers.js
+
+    Contiene los helpers utilizados.
