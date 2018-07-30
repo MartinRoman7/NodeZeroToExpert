@@ -252,6 +252,8 @@ ___
         
         .gitignore -> colocar dentro el directorio no deseado
 
+        README.md -> colocar descripción del proyecto
+        
         Commit: un snap de los archivos
 
         git commit -m "Commit inicial"
