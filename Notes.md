@@ -589,6 +589,8 @@ ___
 
         https://martin-restserver.herokuapp.com/ | https://git.heroku.com/martin-restserver.git
 
+        El archivo package.json debe tener un start
+        "start": "node server/server.js"
 
 ### Scripts
 
