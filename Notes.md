@@ -527,3 +527,70 @@ ___
 * helpers.js
 
     Contiene los helpers utilizados.
+
+## Sección 7
+
+### Instalación de MongoDB
+
+        En la página oficial de mongodb viene la instalación dependiendo de que sistema operativo se maneje.
+
+        Es necesario indicar un directorio donde se va a almacenar la información.
+
+        En Fedora
+
+        Para instalar: dnf install mongodb mongodb-server
+        Para iniciar mongo: service mongod start
+
+### Instalación Robo 3T (manejo de mongodb)
+
+        Se instala dependiendo el sistema operativo.
+
+        Se crea una nueva base de datos.
+        Se crear una nueva colección (tabla).
+        Se crear un nuevo documento (parámetros).
+
+### Peticiones (GET, PUT, POST, DELETE)
+
+        Uso de diferentes metodos para manejo de data.
+        
+        GET: curl -X GET localhost:3000/usuario
+        POST: curl -X POST localhost:3000/usuario
+        PUT: curl -X PUT localhost:3000/usuario
+        DELETE: curl -X DELETE localhost:3000/usuario
+
+        PUT with parameter: curl -X PUT localhost:3000/usuario/parameter
+        POST with parameter: curl -H "Content-Type: application/json" -d '{"nombre":"Martin","edad":"25"}' -X POST http://localhost:3000/usuario
+        POST with parameter (file): curl -H "Content-Type: application/json" -d '@data.json' -X POST http://localhost:3000/usuario
+
+        https://gist.github.com/subfuzion/08c5d85437d5d4f00e58
+
+        Instalar body-parser 
+
+### Manejo de status HTTP
+
+        Validación de los parámetros enviados.
+
+        res.status(400).json({
+            ok: false,
+            mensaje: 'El nombre es necesario'
+        });
+
+### Desarrollo y producción
+
+        Optimizar el proceso de cambio de puerto dependiendo si se está en entorno de desarrollo o productivo.
+
+        Para ello se asigna un archivo en especifico para el manejo de esta info.
+
+### Scripts
+
+* server.js
+
+    Contiene todo lo referido a peticiones.
+
+* data.json
+
+    Información en formato JSON para enviar a través de las peticiones.
+
+* config.js
+
+    Administración del entorno de desarrollo y productivo.
